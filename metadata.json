@@ -1,0 +1,73 @@
+{
+	"libName": "shti2c",
+	"manufacturer": "Sensirion",
+	"description": "SHT Humidity Temperature sensors",
+	"type": "Temperature Sensor",
+	"icon": "",
+	"image": "",
+	"version": "",
+	"eelVersion": "1",
+	"shoppingCartLinks":{
+		"digikey":{
+			"links":{
+				"info":"https://www.digikey.com/product-detail/en/sensirion-ag/SHTC1/1649-1015-1-ND/5872297"
+			},
+
+			"cartData":{
+				"part":"1649-1015-1-ND",
+				"partid":"5872297",
+				"source":"dkstudio",
+				"qty":"1"
+			}
+		}
+	},
+	"requires": [
+		"embedded", "i2c"
+	],
+	"elements": [
+		{
+			"name": "SensirionSHTI2C",
+			"type": "EmbeddedSensirionSHTI2C",
+			"icon": "EmbeddedTemperature.svg",
+			"defaultAbility": "readTemperature",
+			"defaultTrigger": "temperatureRead",
+			"hidden": false,
+
+			"abilities": [
+				{
+					"name": "setup",
+					"hidden":true
+				},
+				{
+					"name": "readTemperature",
+					"triggers": ["temperatureRead"]
+				},
+				{
+					"name": "readHumidity",
+					"triggers": ["humidityRead"]
+				}
+
+			],
+			"properties":[
+				{
+					"name":"i2cInstance",
+					"input": "driverInstance",
+					"driverType": "i2c"
+				}
+			],
+			"triggers": [],
+			"variables": [],
+			"language": {
+				"en-US": {
+					"EmbeddedSensirionSHTI2C": "Sensirion SHT",
+					"i2cInstance": "I2C Driver Instance",
+					"readTemperature": "Read Temperature",
+					"temperatureRead": "Temperature Read",
+					"readHumidity": "Read Humidity",
+					"humidityRead": "Humidity Read",
+					"setup": "Setup"
+				}
+			}
+		}
+	]
+}
